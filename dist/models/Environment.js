@@ -1,0 +1,21 @@
+"use strict";
+// Copyright (c) 2023 Apple Inc. Licensed under MIT License.
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EnvironmentValidator = exports.Environment = void 0;
+/**
+ * The server environment, either sandbox or production.
+ *
+ * {@link https://developer.apple.com/documentation/appstoreserverapi/environment environment}
+ */
+var Environment;
+(function (Environment) {
+    Environment["SANDBOX"] = "Sandbox";
+    Environment["PRODUCTION"] = "Production";
+})(Environment || (exports.Environment = Environment = {}));
+class EnvironmentValidator {
+    validate(obj) {
+        return Object.values(Environment).includes(obj);
+    }
+}
+exports.EnvironmentValidator = EnvironmentValidator;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRW52aXJvbm1lbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9tb2RlbHMvRW52aXJvbm1lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLDREQUE0RDs7O0FBSTVEOzs7O0dBSUc7QUFDSCxJQUFZLFdBR1g7QUFIRCxXQUFZLFdBQVc7SUFDbkIsa0NBQW1CLENBQUE7SUFDbkIsd0NBQXlCLENBQUE7QUFDN0IsQ0FBQyxFQUhXLFdBQVcsMkJBQVgsV0FBVyxRQUd0QjtBQUVELE1BQWEsb0JBQW9CO0lBQzlCLFFBQVEsQ0FBQyxHQUFRO1FBQ1osT0FBTyxNQUFNLENBQUMsTUFBTSxDQUFDLFdBQVcsQ0FBQyxDQUFDLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQTtJQUNuRCxDQUFDO0NBQ0o7QUFKRCxvREFJQyIsInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAoYykgMjAyMyBBcHBsZSBJbmMuIExpY2Vuc2VkIHVuZGVyIE1JVCBMaWNlbnNlLlxuXG5pbXBvcnQgeyBWYWxpZGF0b3IgfSBmcm9tIFwiLi9WYWxpZGF0b3JcIjtcblxuLyoqXG4gKiBUaGUgc2VydmVyIGVudmlyb25tZW50LCBlaXRoZXIgc2FuZGJveCBvciBwcm9kdWN0aW9uLlxuICpcbiAqIHtAbGluayBodHRwczovL2RldmVsb3Blci5hcHBsZS5jb20vZG9jdW1lbnRhdGlvbi9hcHBzdG9yZXNlcnZlcmFwaS9lbnZpcm9ubWVudCBlbnZpcm9ubWVudH1cbiAqL1xuZXhwb3J0IGVudW0gRW52aXJvbm1lbnQge1xuICAgIFNBTkRCT1ggPSBcIlNhbmRib3hcIixcbiAgICBQUk9EVUNUSU9OID0gXCJQcm9kdWN0aW9uXCIsXG59XG5cbmV4cG9ydCBjbGFzcyBFbnZpcm9ubWVudFZhbGlkYXRvciBpbXBsZW1lbnRzIFZhbGlkYXRvcjxFbnZpcm9ubWVudD4ge1xuICAgdmFsaWRhdGUob2JqOiBhbnkpOiBvYmogaXMgRW52aXJvbm1lbnQge1xuICAgICAgICByZXR1cm4gT2JqZWN0LnZhbHVlcyhFbnZpcm9ubWVudCkuaW5jbHVkZXMob2JqKVxuICAgIH1cbn1cbiJdfQ==

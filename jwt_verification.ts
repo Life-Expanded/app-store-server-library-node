@@ -9,7 +9,7 @@ import fetch, { Headers } from 'node-fetch';
 import { Environment } from './models/Environment';
 import { JWSTransactionDecodedPayload, JWSTransactionDecodedPayloadValidator } from './models/JWSTransactionDecodedPayload';
 import { ResponseBodyV2DecodedPayload, ResponseBodyV2DecodedPayloadValidator } from './models/ResponseBodyV2DecodedPayload';
-import { JWSRenewalInfoDecodedPayload, JWSRenewalInfoDecodedPayloadValidator } from './models/JWSReDnewalInfoDecodedPayload';
+import { JWSRenewalInfoDecodedPayload, JWSRenewalInfoDecodedPayloadValidator } from './models/JWSRenewalInfoDecodedPayload';
 import { Data } from './models/Data';
 import { Validator } from './models/Validator';
 import { DecodedSignedData } from './models/DecodedSignedData';
@@ -97,7 +97,8 @@ export class SignedDataVerifier {
      * @throws VerificationException Thrown if the data could not be verified
      */
     async verifyAndDecodeNotification(signedPayload: string): Promise<ResponseBodyV2DecodedPayload> {
-      const decodedJWT: ResponseBodyV2DecodedPayload | Data = await this.verifyJWT(signedPayload, this.responseBodyV2DecodedPayloadValidator, this.extractSignedDate);
+      // TODO: should be ResponseBodyV2DecodedPayload | Data
+      const decodedJWT: any = await this.verifyJWT(signedPayload, this.responseBodyV2DecodedPayloadValidator, this.extractSignedDate);
       const appAppleId = decodedJWT?.appAppleId || decodedJWT?.data.appAppleId || (decodedJWT?.summary ? decodedJWT?.summary?.appAppleId : null)
       const bundleId = decodedJWT?.bundleId || decodedJWT?.data?.bundleId || (decodedJWT?.summary ? decodedJWT?.summary?.bundleId : null)
       const environment = decodedJWT.environment || decodedJWT?.data?.environment || (decodedJWT?.summary ? decodedJWT?.summary?.environment : null)

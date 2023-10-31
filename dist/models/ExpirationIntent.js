@@ -1,0 +1,24 @@
+"use strict";
+// Copyright (c) 2023 Apple Inc. Licensed under MIT License.
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ExpirationIntentValidator = exports.ExpirationIntent = void 0;
+/**
+ * The reason an auto-renewable subscription expired.
+ *
+ * {@link https://developer.apple.com/documentation/appstoreserverapi/expirationintent expirationIntent}
+ */
+var ExpirationIntent;
+(function (ExpirationIntent) {
+    ExpirationIntent[ExpirationIntent["CUSTOMER_CANCELLED"] = 1] = "CUSTOMER_CANCELLED";
+    ExpirationIntent[ExpirationIntent["BILLING_ERROR"] = 2] = "BILLING_ERROR";
+    ExpirationIntent[ExpirationIntent["CUSTOMER_DID_NOT_CONSENT_TO_PRICE_INCREASE"] = 3] = "CUSTOMER_DID_NOT_CONSENT_TO_PRICE_INCREASE";
+    ExpirationIntent[ExpirationIntent["PRODUCT_NOT_AVAILABLE"] = 4] = "PRODUCT_NOT_AVAILABLE";
+    ExpirationIntent[ExpirationIntent["OTHER"] = 5] = "OTHER";
+})(ExpirationIntent || (exports.ExpirationIntent = ExpirationIntent = {}));
+class ExpirationIntentValidator {
+    validate(obj) {
+        return Object.values(ExpirationIntent).includes(obj);
+    }
+}
+exports.ExpirationIntentValidator = ExpirationIntentValidator;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRXhwaXJhdGlvbkludGVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL21vZGVscy9FeHBpcmF0aW9uSW50ZW50LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSw0REFBNEQ7OztBQUk1RDs7OztHQUlHO0FBQ0gsSUFBWSxnQkFNWDtBQU5ELFdBQVksZ0JBQWdCO0lBQ3hCLG1GQUFzQixDQUFBO0lBQ3RCLHlFQUFpQixDQUFBO0lBQ2pCLG1JQUE4QyxDQUFBO0lBQzlDLHlGQUF5QixDQUFBO0lBQ3pCLHlEQUFTLENBQUE7QUFDYixDQUFDLEVBTlcsZ0JBQWdCLGdDQUFoQixnQkFBZ0IsUUFNM0I7QUFFRCxNQUFhLHlCQUF5QjtJQUNuQyxRQUFRLENBQUMsR0FBUTtRQUNaLE9BQU8sTUFBTSxDQUFDLE1BQU0sQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFDLFFBQVEsQ0FBQyxHQUFHLENBQUMsQ0FBQTtJQUN4RCxDQUFDO0NBQ0o7QUFKRCw4REFJQyIsInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAoYykgMjAyMyBBcHBsZSBJbmMuIExpY2Vuc2VkIHVuZGVyIE1JVCBMaWNlbnNlLlxuXG5pbXBvcnQgeyBWYWxpZGF0b3IgfSBmcm9tIFwiLi9WYWxpZGF0b3JcIjtcblxuLyoqXG4gKiBUaGUgcmVhc29uIGFuIGF1dG8tcmVuZXdhYmxlIHN1YnNjcmlwdGlvbiBleHBpcmVkLlxuICpcbiAqIHtAbGluayBodHRwczovL2RldmVsb3Blci5hcHBsZS5jb20vZG9jdW1lbnRhdGlvbi9hcHBzdG9yZXNlcnZlcmFwaS9leHBpcmF0aW9uaW50ZW50IGV4cGlyYXRpb25JbnRlbnR9XG4gKi9cbmV4cG9ydCBlbnVtIEV4cGlyYXRpb25JbnRlbnQge1xuICAgIENVU1RPTUVSX0NBTkNFTExFRCA9IDEsXG4gICAgQklMTElOR19FUlJPUiA9IDIsXG4gICAgQ1VTVE9NRVJfRElEX05PVF9DT05TRU5UX1RPX1BSSUNFX0lOQ1JFQVNFID0gMyxcbiAgICBQUk9EVUNUX05PVF9BVkFJTEFCTEUgPSA0LFxuICAgIE9USEVSID0gNSxcbn1cblxuZXhwb3J0IGNsYXNzIEV4cGlyYXRpb25JbnRlbnRWYWxpZGF0b3IgaW1wbGVtZW50cyBWYWxpZGF0b3I8RXhwaXJhdGlvbkludGVudD4ge1xuICAgdmFsaWRhdGUob2JqOiBhbnkpOiBvYmogaXMgRXhwaXJhdGlvbkludGVudCB7XG4gICAgICAgIHJldHVybiBPYmplY3QudmFsdWVzKEV4cGlyYXRpb25JbnRlbnQpLmluY2x1ZGVzKG9iailcbiAgICB9XG59XG4iXX0=

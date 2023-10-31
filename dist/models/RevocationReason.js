@@ -1,0 +1,21 @@
+"use strict";
+// Copyright (c) 2023 Apple Inc. Licensed under MIT License.
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RevocationReasonValidator = exports.RevocationReason = void 0;
+/**
+ * The reason for a refunded transaction.
+ *
+ * {@link https://developer.apple.com/documentation/appstoreserverapi/revocationreason revocationReason}
+ */
+var RevocationReason;
+(function (RevocationReason) {
+    RevocationReason[RevocationReason["REFUNDED_DUE_TO_ISSUE"] = 1] = "REFUNDED_DUE_TO_ISSUE";
+    RevocationReason[RevocationReason["REFUNDED_FOR_OTHER_REASON"] = 0] = "REFUNDED_FOR_OTHER_REASON";
+})(RevocationReason || (exports.RevocationReason = RevocationReason = {}));
+class RevocationReasonValidator {
+    validate(obj) {
+        return Object.values(RevocationReason).includes(obj);
+    }
+}
+exports.RevocationReasonValidator = RevocationReasonValidator;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUmV2b2NhdGlvblJlYXNvbi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL21vZGVscy9SZXZvY2F0aW9uUmVhc29uLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSw0REFBNEQ7OztBQUk1RDs7OztHQUlHO0FBQ0gsSUFBWSxnQkFHWDtBQUhELFdBQVksZ0JBQWdCO0lBQ3hCLHlGQUF5QixDQUFBO0lBQ3pCLGlHQUE2QixDQUFBO0FBQ2pDLENBQUMsRUFIVyxnQkFBZ0IsZ0NBQWhCLGdCQUFnQixRQUczQjtBQUVELE1BQWEseUJBQXlCO0lBQ25DLFFBQVEsQ0FBQyxHQUFRO1FBQ1osT0FBTyxNQUFNLENBQUMsTUFBTSxDQUFDLGdCQUFnQixDQUFDLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxDQUFBO0lBQ3hELENBQUM7Q0FDSjtBQUpELDhEQUlDIiwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IChjKSAyMDIzIEFwcGxlIEluYy4gTGljZW5zZWQgdW5kZXIgTUlUIExpY2Vuc2UuXG5cbmltcG9ydCB7IFZhbGlkYXRvciB9IGZyb20gXCIuL1ZhbGlkYXRvclwiO1xuXG4vKipcbiAqIFRoZSByZWFzb24gZm9yIGEgcmVmdW5kZWQgdHJhbnNhY3Rpb24uXG4gKlxuICoge0BsaW5rIGh0dHBzOi8vZGV2ZWxvcGVyLmFwcGxlLmNvbS9kb2N1bWVudGF0aW9uL2FwcHN0b3Jlc2VydmVyYXBpL3Jldm9jYXRpb25yZWFzb24gcmV2b2NhdGlvblJlYXNvbn1cbiAqL1xuZXhwb3J0IGVudW0gUmV2b2NhdGlvblJlYXNvbiB7XG4gICAgUkVGVU5ERURfRFVFX1RPX0lTU1VFID0gMSxcbiAgICBSRUZVTkRFRF9GT1JfT1RIRVJfUkVBU09OID0gMCxcbn1cblxuZXhwb3J0IGNsYXNzIFJldm9jYXRpb25SZWFzb25WYWxpZGF0b3IgaW1wbGVtZW50cyBWYWxpZGF0b3I8UmV2b2NhdGlvblJlYXNvbj4ge1xuICAgdmFsaWRhdGUob2JqOiBhbnkpOiBvYmogaXMgUmV2b2NhdGlvblJlYXNvbiB7XG4gICAgICAgIHJldHVybiBPYmplY3QudmFsdWVzKFJldm9jYXRpb25SZWFzb24pLmluY2x1ZGVzKG9iailcbiAgICB9XG59XG4iXX0=

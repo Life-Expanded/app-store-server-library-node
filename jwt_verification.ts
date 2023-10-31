@@ -9,7 +9,8 @@ import fetch, { Headers } from 'node-fetch';
 import { Environment } from './models/Environment';
 import { JWSTransactionDecodedPayload, JWSTransactionDecodedPayloadValidator } from './models/JWSTransactionDecodedPayload';
 import { ResponseBodyV2DecodedPayload, ResponseBodyV2DecodedPayloadValidator } from './models/ResponseBodyV2DecodedPayload';
-import { JWSRenewalInfoDecodedPayload, JWSRenewalInfoDecodedPayloadValidator } from './models/JWSRenewalInfoDecodedPayload';
+import { JWSRenewalInfoDecodedPayload, JWSRenewalInfoDecodedPayloadValidator } from './models/JWSReDnewalInfoDecodedPayload';
+import { Data } from './models/Data';
 import { Validator } from './models/Validator';
 import { DecodedSignedData } from './models/DecodedSignedData';
 import { AppTransaction, AppTransactionValidator } from './models/AppTransaction';
@@ -96,10 +97,10 @@ export class SignedDataVerifier {
      * @throws VerificationException Thrown if the data could not be verified
      */
     async verifyAndDecodeNotification(signedPayload: string): Promise<ResponseBodyV2DecodedPayload> {
-      const decodedJWT: ResponseBodyV2DecodedPayload = await this.verifyJWT(signedPayload, this.responseBodyV2DecodedPayloadValidator, this.extractSignedDate);
-      const appAppleId = decodedJWT.data ? decodedJWT.data.appAppleId : (decodedJWT.summary ? decodedJWT.summary.appAppleId : null)
-      const bundleId = decodedJWT.data ? decodedJWT.data.bundleId : (decodedJWT.summary ? decodedJWT.summary.bundleId : null)
-      const environment = decodedJWT.data ? decodedJWT.data.environment : (decodedJWT.summary ? decodedJWT.summary.environment : null)
+      const decodedJWT: ResponseBodyV2DecodedPayload | Data = await this.verifyJWT(signedPayload, this.responseBodyV2DecodedPayloadValidator, this.extractSignedDate);
+      const appAppleId = decodedJWT?.appAppleId || decodedJWT?.data.appAppleId || (decodedJWT?.summary ? decodedJWT?.summary?.appAppleId : null)
+      const bundleId = decodedJWT?.bundleId || decodedJWT?.data?.bundleId || (decodedJWT?.summary ? decodedJWT?.summary?.bundleId : null)
+      const environment = decodedJWT.environment || decodedJWT?.data?.environment || (decodedJWT?.summary ? decodedJWT?.summary?.environment : null)
       if (this.bundleId !== bundleId || (this.environment === "Production" && this.appAppleId !== appAppleId)) {
         throw new VerificationException(VerificationStatus.INVALID_APP_IDENTIFIER)
       }

@@ -9,7 +9,5 @@ tsconfig.tsbuildinfo
 .DS_Store
 Thumbs.db
 
-dist/**/*
-
 api-client/**/*
 docs/**/*

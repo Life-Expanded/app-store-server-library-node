@@ -99,7 +99,7 @@ export class SignedDataVerifier {
     async verifyAndDecodeNotification(signedPayload: string): Promise<ResponseBodyV2DecodedPayload> {
       // TODO: should be ResponseBodyV2DecodedPayload | Data
       const decodedJWT: any = await this.verifyJWT(signedPayload, this.responseBodyV2DecodedPayloadValidator, this.extractSignedDate);
-      const appAppleId = decodedJWT?.appAppleId || decodedJWT?.data.appAppleId || (decodedJWT?.summary ? decodedJWT?.summary?.appAppleId : null)
+      const appAppleId = decodedJWT?.appAppleId || decodedJWT?.data?.appAppleId || (decodedJWT?.summary ? decodedJWT?.summary?.appAppleId : null)
       const bundleId = decodedJWT?.bundleId || decodedJWT?.data?.bundleId || (decodedJWT?.summary ? decodedJWT?.summary?.bundleId : null)
       const environment = decodedJWT.environment || decodedJWT?.data?.environment || (decodedJWT?.summary ? decodedJWT?.summary?.environment : null)
       if (this.bundleId !== bundleId || (this.environment === "Production" && this.appAppleId !== appAppleId)) {
